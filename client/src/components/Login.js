@@ -31,6 +31,7 @@ const Login = (props) => {
       .catch(error => {
         console.log(error,
           'Login.js, line 32, error logging in');
+        alert('Login failed. Please try again.');
       });
   };
   
