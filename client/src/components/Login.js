@@ -1,50 +1,51 @@
-import React, { useState } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import React, { useState } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const Login = props => {
-  console.log(props, "Login.js, line 4, props passed in?");
+const Login = (props) => {
+  console.log(props, 'Login.js, line 4, props passed in?')
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [user, setUser] = useState({
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   });
   // Lambda School
   // i<3Lambd4
 
-  const handleChange = event => {
-    setUser({
-      ...user,
-      [event.target.name]: event.target.value
-    });
+  const handleChange = (event) => {
+		setUser({
+			...user,
+			[event.target.name]: event.target.value
+		});
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault()
     axiosWithAuth()
-      .post("/api/login", user)
+      .post('/api/login', user)
       .then(response => {
-        console.log(response.data, "Login.js, line 27, submission response");
-        localStorage.setItem("token", response.data.payload);
-        props.history.push("/BubblePage");
+        console.log(response.data, 'Login.js, line 27, submission response')
+        localStorage.setItem('token', response.data.payload)
+        props.history.push('/BubblePage')
       })
       .catch(error => {
-        console.log(error, "Login.js, line 32, error logging in");
+        console.log(error,
+          'Login.js, line 32, error logging in');
       });
   };
-
+  
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
       <form className="form" onSubmit={handleSubmit}>
-        <input
+			  <input
           type="text"
           name="username"
           placeholder="Username"
           value={user.username}
           onChange={handleChange}
         />
-        <input
+			  <input
           type="password"
           name="password"
           placeholder="Password"
@@ -52,8 +53,8 @@ const Login = props => {
           onChange={handleChange}
         />
 
-        <button type="submit">Log In</button>
-      </form>
+			<button type="submit">Log In</button>
+		</form>
     </>
   );
 };
