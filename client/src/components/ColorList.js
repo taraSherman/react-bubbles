@@ -31,8 +31,8 @@ const ColorList = ({ colors, updateColors }) => {
         ? response.data
         : color))
     })
-    .catch(error =>
-      console.log(error, 'ColorList.js, line 36, error in PUT request to update color'))
+    .catch(error => {
+      console.log(error, 'ColorList.js, line 36, error in PUT request to update color')})
   };
 
   const deleteColor = color => {
@@ -44,8 +44,8 @@ const ColorList = ({ colors, updateColors }) => {
           color.id !== response.data
         ))
       })
-      .catch(error =>
-        console.log(error, 'ColorList.js, line 49, error deleting color'))
+      .catch(error => {
+        console.log(error, 'ColorList.js, line 49, error deleting color')})
   };
 
   return (
