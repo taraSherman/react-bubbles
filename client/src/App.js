@@ -13,7 +13,7 @@ function App() {
     <div className="wrapper">
       <nav>
         {!loggedIn && <Link to="/">Log In</Link>}
-        {loggedIn && <Link to="/bubblepage">Bubble Page</Link>}
+        {/* {loggedIn && <Link to="/bubblepage">Bubble Page</Link>} */}
       </nav>
 
       <Route exact path="/" component={Login} />

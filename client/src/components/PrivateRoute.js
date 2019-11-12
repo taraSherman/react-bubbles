@@ -8,7 +8,7 @@ function PrivateRoute(props) {
 	} = props
 
 	return (
-		<Route {...rest} render={(props) => {
+		<Route {...rest} render={(renderProps) => {
 			const token = localStorage.getItem('token')
 				return token
 					? <Component />
