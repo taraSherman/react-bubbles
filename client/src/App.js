@@ -1,19 +1,19 @@
 import React from "react";
 import { withRouter, Route, Link } from "react-router-dom";
-import { axiosWithAuth } from "./utils/axiosWithAuth";
+import { token } from "./utils/axiosWithAuth";
 import PrivateRoute from "./components/PrivateRoute";
 import { BubblePage } from "./components/BubblePage";
 import Login from "./components/Login";
 import "./styles.scss";
 
 function App() {
-  const loggedIn = axiosWithAuth();
+  const loggedIn = token;
 
   return (
     <div className="wrapper">
       <nav>
-        {!loggedIn && <Link to="/">Log In</Link>}
-        {/* {loggedIn && <Link to="/bubblepage">Bubble Page</Link>} */}
+        {loggedIn && <Link to="/">Log In</Link>}
+        {loggedIn && <Link to="/bubblepage">Bubble Page</Link>}
       </nav>
 
       <Route exact path="/" component={Login} />

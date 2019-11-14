@@ -19,7 +19,7 @@ export const BubblePage = () => {
       .catch(error =>
         console.log(
           error.data,
-          "BubblePage.js, line 21, error fetching ColorListist"
+          "BubblePage.js, line 21, error fetching ColorList"
         )
       );
   }, []); //dependency array!
